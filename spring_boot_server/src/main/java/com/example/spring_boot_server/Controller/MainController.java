@@ -1,6 +1,8 @@
 package com.example.spring_boot_server.Controller;
 
+import com.example.spring_boot_server.Dao.SignInDao;
 import com.example.spring_boot_server.Dao.SignUpDao;
+import com.example.spring_boot_server.Model.SignIn;
 import com.example.spring_boot_server.Model.SignUp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,9 @@ public class MainController {
 
     @Autowired
     private SignUpDao signUpDao;
+
+    @Autowired
+    private SignInDao signInDao;
 
     @RequestMapping("/")
     private String index() {
@@ -40,4 +45,11 @@ public class MainController {
     private String getAll() {
         return signUpDao.findAll().toString();
     }
+
+    @RequestMapping(value = "/signIn", method = RequestMethod.POST)
+    private String signIn(@RequestParam(name = "email") String email,
+                          @RequestParam(name = "password") String password) {
+        return signInDao.save(new SignIn(email, password)).toString();
+    }
+
 }
