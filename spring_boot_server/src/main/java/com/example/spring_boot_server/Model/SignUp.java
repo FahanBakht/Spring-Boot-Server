@@ -84,4 +84,17 @@ public class SignUp {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "SignUp{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNo='" + phoneNo + '\'' +
+                ", gender='" + gender + '\'' +
+                ", country='" + country + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
