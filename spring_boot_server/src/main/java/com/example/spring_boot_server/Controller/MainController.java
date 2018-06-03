@@ -25,7 +25,7 @@ public class MainController {
         return "Hello Spring Boot +JPA + Hibernate + PostGreSQL Demo World";
     }
 
-    @RequestMapping(path = "/add", method = RequestMethod.POST)
+    @RequestMapping(path = "/add")
     private String add(@RequestParam(name = "username") String username,
                        @RequestParam(name = "email") String email,
                        @RequestParam(name = "phoneNo") String phoneNo,
@@ -46,7 +46,7 @@ public class MainController {
         return signUpDao.findAll().toString();
     }
 
-    @RequestMapping(value = "/signIn", method = RequestMethod.POST)
+    @RequestMapping(value = "/signIn")
     private String signIn(@RequestParam(name = "email") String email,
                           @RequestParam(name = "password") String password) {
         return signInDao.save(new SignIn(email, password)).toString();
